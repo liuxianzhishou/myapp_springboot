@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myapp.dao.PicListMapper" >
+  <resultMap id="BaseResultMap" type="com.myapp.entity.PicList" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="img_src" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="img_link" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="img_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="img_prefer" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="img_cate" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="img_figure" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="img_count" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="img_create_time" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, img_src, img_link, img_type, img_prefer, img_cate, img_figure, img_count, img_create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pic_list
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pic_list
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.myapp.entity.PicList" >
+    insert into pic_list (id, img_src, img_link, 
+      img_type, img_prefer, img_cate, 
+      img_figure, img_count, img_create_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{imgSrc,jdbcType=VARCHAR}, #{imgLink,jdbcType=VARCHAR}, 
+      #{imgType,jdbcType=VARCHAR}, #{imgPrefer,jdbcType=REAL}, #{imgCate,jdbcType=VARCHAR}, 
+      #{imgFigure,jdbcType=VARCHAR}, #{imgCount,jdbcType=VARCHAR}, #{imgCreateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myapp.entity.PicList" >
+    insert into pic_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="imgSrc != null" >
+        img_src,
+      </if>
+      <if test="imgLink != null" >
+        img_link,
+      </if>
+      <if test="imgType != null" >
+        img_type,
+      </if>
+      <if test="imgPrefer != null" >
+        img_prefer,
+      </if>
+      <if test="imgCate != null" >
+        img_cate,
+      </if>
+      <if test="imgFigure != null" >
+        img_figure,
+      </if>
+      <if test="imgCount != null" >
+        img_count,
+      </if>
+      <if test="imgCreateTime != null" >
+        img_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="imgSrc != null" >
+        #{imgSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="imgLink != null" >
+        #{imgLink,jdbcType=VARCHAR},
+      </if>
+      <if test="imgType != null" >
+        #{imgType,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPrefer != null" >
+        #{imgPrefer,jdbcType=REAL},
+      </if>
+      <if test="imgCate != null" >
+        #{imgCate,jdbcType=VARCHAR},
+      </if>
+      <if test="imgFigure != null" >
+        #{imgFigure,jdbcType=VARCHAR},
+      </if>
+      <if test="imgCount != null" >
+        #{imgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="imgCreateTime != null" >
+        #{imgCreateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myapp.entity.PicList" >
+    update pic_list
+    <set >
+      <if test="imgSrc != null" >
+        img_src = #{imgSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="imgLink != null" >
+        img_link = #{imgLink,jdbcType=VARCHAR},
+      </if>
+      <if test="imgType != null" >
+        img_type = #{imgType,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPrefer != null" >
+        img_prefer = #{imgPrefer,jdbcType=REAL},
+      </if>
+      <if test="imgCate != null" >
+        img_cate = #{imgCate,jdbcType=VARCHAR},
+      </if>
+      <if test="imgFigure != null" >
+        img_figure = #{imgFigure,jdbcType=VARCHAR},
+      </if>
+      <if test="imgCount != null" >
+        img_count = #{imgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="imgCreateTime != null" >
+        img_create_time = #{imgCreateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myapp.entity.PicList" >
+    update pic_list
+    set img_src = #{imgSrc,jdbcType=VARCHAR},
+      img_link = #{imgLink,jdbcType=VARCHAR},
+      img_type = #{imgType,jdbcType=VARCHAR},
+      img_prefer = #{imgPrefer,jdbcType=REAL},
+      img_cate = #{imgCate,jdbcType=VARCHAR},
+      img_figure = #{imgFigure,jdbcType=VARCHAR},
+      img_count = #{imgCount,jdbcType=VARCHAR},
+      img_create_time = #{imgCreateTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="swiper" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from pic_list
+    order by img_prefer desc
+    limit #{count ,jdbcType=INTEGER}
+  </select>
+
+  <select id="getHomeList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pic_list
+    where img_type= #{type}
+    order by img_create_time desc
+    limit 10 offset #{page}
+  </select>
+
+  <select id="selectAllFigure" resultMap="BaseResultMap">
+    select img_figure
+    <include refid="Base_Column_List" />
+    from pic_list
+  </select>
+</mapper>
