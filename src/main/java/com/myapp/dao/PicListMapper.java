@@ -27,6 +27,5 @@ public interface PicListMapper {
     List<String> selectAllFigure();
 
     //限定人物名称得到该角色所有数据
-
-
+    List<PicList> selectFigureDetails(String figure);
 }

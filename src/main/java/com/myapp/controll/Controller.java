@@ -4,6 +4,10 @@ import com.myapp.entity.PicList;
 import com.myapp.service.ServiceImpl.PicListServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +38,17 @@ public class Controller {
         return picListService.selectByPrimaryKey(id);
     }
 
+    //传送数据到前端--Category角色名称列表
+    @RequestMapping(value = "/selectAllFigure",method = RequestMethod.GET)
+    public ArrayList<String> selectAllFigure() {
+        return picListService.selectAllFigure();
+    }
+
+    //传送数据到前端--Category每个角色所有数据列表
+    @RequestMapping(value = "/selectFigureDetails/{figure}",method = RequestMethod.GET)
+    public List<PicList> selectFigureDetails(@PathVariable String figure) {
+        return picListService.selectFigureDetails(figure);
+    }
 
     //--------------------------前端发数据到后端-------------------------------
     //接收前端传来的数据，进行数据库的更新-update的detail数据

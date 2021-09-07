@@ -6,8 +6,7 @@ import com.myapp.service.PicListService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class PicListServiceImpl implements PicListService {
@@ -58,7 +57,25 @@ public class PicListServiceImpl implements PicListService {
     public ArrayList<String> selectAllFigure() {
         ArrayList<String> res=new ArrayList<>();
         List<String> resSQL=picListMapper.selectAllFigure();
-
+        HashSet<String> figureSet = new HashSet<>();
+        //遍历resSQL
+        for(String i : resSQL) {
+            //对string针对中文和英文逗号进行拆分--正则表达式
+            String[] tmp =  i.trim().split("[,，]");
+            for(String j: tmp)
+            {
+                if(!figureSet.contains(j))
+                    figureSet.add(j);
+            }
+        }
+        for(String i : figureSet)
+            res.add(i);
         return res;
     }
+
+    @Override
+    public List<PicList> selectFigureDetails(String figure) {
+        return picListMapper.selectFigureDetails(figure);
+    }
+
 }

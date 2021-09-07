@@ -158,9 +158,18 @@
     limit 10 offset #{page}
   </select>
 
-  <select id="selectAllFigure" resultMap="BaseResultMap">
+  <select id="selectAllFigure" resultType="java.lang.String">
     select img_figure
-    <include refid="Base_Column_List" />
+--     <include refid="Base_Column_List" />
     from pic_list
+    order by img_figure
+  </select>
+
+  <select id="selectFigureDetails" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+        <include refid="Base_Column_List" />
+    from pic_list
+    where img_figure like concat('%',#{figure},'%')
+    order by img_create_time desc
   </select>
 </mapper>

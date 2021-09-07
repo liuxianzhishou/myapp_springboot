@@ -3,6 +3,7 @@ package com.myapp.service;
 import com.myapp.entity.PicList;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public interface PicListService {
@@ -26,4 +27,7 @@ public interface PicListService {
 
     //获取所有人物名称列表
     ArrayList<String> selectAllFigure();
+
+    //限定人物名称得到该角色所有数据
+    List<PicList> selectFigureDetails(String figure);
 }
