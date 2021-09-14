@@ -1,0 +1,45 @@
+//轮播图list
+    List<PicList> swiper(int count);
+
+    //pic_list page,type数据
+    List<PicList> getHomeList(String type);
+
+    //获取所有人物名称列表
+    List<String> selectAllFigure();
+
+    //限定人物名称得到该角色所有数据
+    List<PicList> selectFigureDetails(String figure);
+
+
+ <select id="swiper" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from pic_list
+    order by img_prefer desc
+    limit #{count ,jdbcType=INTEGER}
+  </select>
+
+  <select id="getHomeList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pic_list
+    where img_type= #{type}
+    order by img_create_time desc
+  </select>
+
+  <select id="selectAllFigure" resultType="java.lang.String">
+    select img_figure
+--     <include refid="Base_Column_List" />
+    from pic_list
+    order by img_figure
+  </select>
+
+  <select id="selectFigureDetails" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+        <include refid="Base_Column_List" />
+    from pic_list
+    where img_figure like concat('%',#{figure},'%')
+    order by img_create_time desc
+  </select>
+
+

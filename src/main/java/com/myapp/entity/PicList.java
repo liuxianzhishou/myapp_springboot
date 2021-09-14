@@ -1,6 +1,8 @@
 package com.myapp.entity;
 
-public class PicList {
+import java.io.Serializable;
+
+public class PicList implements Serializable {
     private Long id;
 
     private String imgSrc;
@@ -18,6 +20,8 @@ public class PicList {
     private String imgCount;
 
     private String imgCreateTime;
+
+    private static final long serialVersionUID = 1L;
 
     public PicList(Long id, String imgSrc, String imgLink, String imgType, Float imgPrefer, String imgCate, String imgFigure, String imgCount, String imgCreateTime) {
         this.id = id;
@@ -105,5 +109,25 @@ public class PicList {
 
     public void setImgCreateTime(String imgCreateTime) {
         this.imgCreateTime = imgCreateTime == null ? null : imgCreateTime.trim();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", imgSrc=").append(imgSrc);
+        sb.append(", imgLink=").append(imgLink);
+        sb.append(", imgType=").append(imgType);
+        sb.append(", imgPrefer=").append(imgPrefer);
+        sb.append(", imgCate=").append(imgCate);
+        sb.append(", imgFigure=").append(imgFigure);
+        sb.append(", imgCount=").append(imgCount);
+        sb.append(", imgCreateTime=").append(imgCreateTime);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

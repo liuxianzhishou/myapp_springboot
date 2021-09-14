@@ -1,16 +1,19 @@
-package com.myapp.controll;
+package com.myapp.control;
 
+import com.github.pagehelper.PageHelper;
 import com.myapp.entity.PicList;
 import com.myapp.service.ServiceImpl.PicListServiceImpl;
+import com.myapp.utils.Paging;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+@Api(tags = "controller-yh", description = "我的controller层")
 @RestController
 @CrossOrigin
 public class Controller {
@@ -18,40 +21,41 @@ public class Controller {
     private PicListServiceImpl picListService;
 
     //--------------------------后端发数据到前端--------------------------------------
-    //传送数据到前端-轮播图数据
+    @ApiOperation("传送数据到前端-首页轮播图数据")
     @RequestMapping(value = "/swiper",method = RequestMethod.GET)
     public List<PicList> selectAll() {
         return picListService.swiper(4);
     }
 
-    //传送数据到前端-首页list数据
-    @RequestMapping(value = "/homeList/{type}/{page}",method = RequestMethod.GET)
-      public List<PicList> homeList(@PathVariable String type,@PathVariable int page)
-    {
-        return picListService.getHomeList(type, page);
+    @ApiOperation("传送数据到前端-利用分页工具生成首页list数据")
+    @RequestMapping(value = "/picListPage/{type}/{page}", method = RequestMethod.GET)
+    public Paging homeListPage(@PathVariable String type, @PathVariable int page) {
+        PageHelper.startPage(page,10);
+        List<PicList> tmp = picListService.getHomeList(type);
+        return Paging.restPage(tmp);
     }
 
-    //传送数据到前端-detail数据
+    @ApiOperation("传送数据到前端-detail数据")
     @RequestMapping(value = "/detail/{id}",method = RequestMethod.GET)
     public PicList selectByKey(@PathVariable long id)
     {
         return picListService.selectByPrimaryKey(id);
     }
 
-    //传送数据到前端--Category角色名称列表
+    @ApiOperation("传送数据到前端--Category角色名称列表")
     @RequestMapping(value = "/selectAllFigure",method = RequestMethod.GET)
     public ArrayList<String> selectAllFigure() {
         return picListService.selectAllFigure();
     }
 
-    //传送数据到前端--Category每个角色所有数据列表
+    @ApiOperation("传送数据到前端--Category每个角色detail列表")
     @RequestMapping(value = "/selectFigureDetails/{figure}",method = RequestMethod.GET)
     public List<PicList> selectFigureDetails(@PathVariable String figure) {
         return picListService.selectFigureDetails(figure);
     }
 
     //--------------------------前端发数据到后端-------------------------------
-    //接收前端传来的数据，进行数据库的更新-update的detail数据
+    @ApiOperation("接收前端传来的数据，进行数据库的更新-update的detail数据")
     @RequestMapping(value = "/updateMsg",method = RequestMethod.POST)
     public void update(@RequestBody Map<String,Object> newData) {
 //        System.out.println("newData——"+newData);

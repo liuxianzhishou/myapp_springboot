@@ -1,5 +1,6 @@
 package com.myapp.service.ServiceImpl;
 
+import com.github.pagehelper.PageHelper;
 import com.myapp.dao.PicListMapper;
 import com.myapp.entity.PicList;
 import com.myapp.service.PicListService;
@@ -46,11 +47,14 @@ public class PicListServiceImpl implements PicListService {
     @Override
     public List<PicList> swiper(int count) {
         return picListMapper.swiper(count);
+//        return null;
     }
 
     @Override
-    public List<PicList> getHomeList(String type, int page) {
-        return picListMapper.getHomeList(type,page);
+    public List<PicList> getHomeList(String type) {
+        List<PicList> tmp = picListMapper.getHomeList(type);
+        return tmp;
+//        return  null;
     }
 
     @Override
@@ -76,6 +80,7 @@ public class PicListServiceImpl implements PicListService {
     @Override
     public List<PicList> selectFigureDetails(String figure) {
         return picListMapper.selectFigureDetails(figure);
+//        return null;
     }
 
 }

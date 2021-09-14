@@ -5,7 +5,7 @@ CREATE TABLE `pic_list` (
 `img_link` varchar(80) default null comment '图片链接',
 `img_type` varchar(10) default 'previous' comment '图片类型',
 `img_prefer` float default 0 comment '图片喜好度',
-`img_cate` varchar(10) default '霹雳布袋戏',
+`img_cate` varchar(10) default '霹雳布袋戏' comment '布袋戏名称',
 `img_figure` varchar(20) not null comment '人物名',
 `img_count` varchar(10) default 'one' comment '人物数量',
 `img_create_time` varchar(10) default null comment '创建时间',
@@ -600,6 +600,137 @@ insert into `pic_list` values(
 '2020-10-02'
 );
 
+insert into `pic_list` values(
+50,
+'https://imglf6.lf127.net/img/0ac460addd4fa1b0/MXhKTXR0eERVR2xwMjMxTTlMQmcrYSswc2VhM3c4UE96aHplTXZDaUljMD0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+76,
+'霹雳布袋戏',
+'剑雪无名',
+'one',
+'2020-10-02'
+);
+
+insert into `pic_list` values(
+51,
+'https://imglf3.lf127.net/img/b69ab05874abdd0c/MXhKTXR0eERVR2xwMjMxTTlMQmcrYjUxWjRHQUVuajZyRC9kdHpZSmYxMD0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+76,
+'霹雳布袋戏',
+'一剑封禅',
+'one',
+'2020-10-02'
+);
+
+insert into `pic_list` values(
+52,
+'https://imglf5.lf127.net/img/5cd689419fcac06b/MXhKTXR0eERVR2xwMjMxTTlMQmcrYWxoV2doWnVzV2s5MzZGSm82TWVJaz0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+78,
+'霹雳布袋戏',
+'一剑封禅，剑雪无名',
+'two',
+'2020-10-02'
+);
+
+insert into `pic_list` values(
+53,
+'https://imglf6.lf127.net/img/fc94749787f07887/MXhKTXR0eERVR2xwMjMxTTlMQmcrZEhWQkd4SUdVb2gveWo0Y0djMkR5RT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+79,
+'霹雳布袋戏',
+'一剑封禅，剑雪无名',
+'two',
+'2020-06-16'
+);
+
+insert into `pic_list` values(
+54,
+'https://imglf5.lf127.net/img/de95d87a3cc18369/MXhKTXR0eERVR2xwMjMxTTlMQmcrUmo0ZmxRNlhGRzV4cmRpT2FnalErRT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+77,
+'金光布袋戏',
+'网中人，空空',
+'two',
+'2020-08-29'
+);
+
+insert into `pic_list` values(
+55,
+'https://imglf6.lf127.net/img/b4f39237cf1a8adf/MXhKTXR0eERVR2xwMjMxTTlMQmcrWXlUZmNsemNET3JqYnhoUkZkU2tVaz0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+74,
+'金光布袋戏',
+'无情葬月，荻花题叶',
+'two',
+'2020-08-27'
+);
+
+insert into `pic_list` values(
+56,
+'https://imglf4.lf127.net/img/38a302d19bd1bfd2/MXhKTXR0eERVR2xwMjMxTTlMQmcrVGdieGNCRUgvSTZ5cjJYb3FycnpSMD0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+78,
+'金光布袋戏',
+'北冥皇渊，八纮稣浥',
+'two',
+'2020-08-27'
+);
+
+insert into `pic_list` values(
+57,
+'https://imglf6.lf127.net/img/52cbdcb2925b8fe7/MXhKTXR0eERVR2xwMjMxTTlMQmcrUW9aUmo1Z2Zwdmx6dHJheEFQdFdXdz0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+79,
+'金光布袋戏',
+'慕容胜雪',
+'one',
+'2020-04-16'
+);
+
+insert into `pic_list` values(
+58,
+'https://imglf5.lf127.net/img/825d176fe9cdb99e/MXhKTXR0eERVR2xwMjMxTTlMQmcrVW9CbU4rK1cyNEpuOU50RSt0Ri9ZZz0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+78.8,
+'金光布袋戏',
+'长琴无焰',
+'one',
+'2020-04-01'
+);
+
+insert into `pic_list` values(
+59,
+'https://imglf3.lf127.net/img/b01532e7eaf67cbd/MXhKTXR0eERVR2xwMjMxTTlMQmcrU3VXd2NoeHZFaUUvYnBSSUZiSGJuZz0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg',
+'https://www.lofter.com/',
+'previous',
+79.7,
+'金光布袋戏',
+'上官鸿信',
+'one',
+'2020-03-29'
+);
+
+insert into `pic_list` values(
+60,
+'https://imglf6.lf127.net/img/747ec03671e276ab/MXhKTXR0eERVR2xwdkVsaHhzclF2bldPSE91ODdEUnhwdFJ0ZXczZThJOD0.jpg?imageView&thumbnail=1000x0&type=jpg',
+'https://www.lofter.com/',
+'now',
+98,
+'金光布袋戏',
+'北冥皇渊，八纮稣浥',
+'two',
+'2021-09-07'
+);
 
 
 

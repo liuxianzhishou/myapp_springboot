@@ -23,7 +23,7 @@ public interface PicListService {
     List<PicList> swiper(int count);
 
     //pic_list page,type数据
-    List<PicList> getHomeList(String type, int page);
+    List<PicList> getHomeList(String type);
 
     //获取所有人物名称列表
     ArrayList<String> selectAllFigure();
